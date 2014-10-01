@@ -13,6 +13,7 @@ helpers do
 end
 
 post "/" do
+  logger.info params
   if params[:action] == 'bet_request'
     Player.new.bet_request(JSON.parse(params[:game_state])).to_s
   elsif params[:action] == 'showdown'
@@ -21,7 +22,6 @@ post "/" do
   elsif params[:action] == 'version'
     Player::VERSION
   else
-    logger.info params
     'OK'
   end
 end
