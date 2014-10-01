@@ -1,9 +1,16 @@
 require 'sinatra'
 require 'json'
 require_relative 'player'
+use Rack::Logger
 
 set :port, 8090
 set :bind, '0.0.0.0'
+
+helpers do
+  def logger
+    request.logger
+  end
+end
 
 post "/" do
   if params[:action] == 'bet_request'
@@ -14,6 +21,7 @@ post "/" do
   elsif params[:action] == 'version'
     Player::VERSION
   else
+    logger.info params
     'OK'
   end
 end
