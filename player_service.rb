@@ -14,6 +14,11 @@ end
 
 post "/" do
   logger.info params
+
+  data = GameDataParser.new(params)
+  table  = Table.new(data.table_data)
+  player = Player.new(data.player)
+
   if params[:action] == 'bet_request'
     Player.new.bet_request(JSON.parse(params[:game_state])).to_s
   elsif params[:action] == 'showdown'
