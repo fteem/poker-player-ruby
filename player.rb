@@ -6,7 +6,10 @@ class Player
   attr_reader :hole_cards, :name, :stack, :bet, :id
 
   def initialize(player_data)
-    @hole_cards = CardsFactory.build(player_data['hole_cards'])
+    @hole_cards = HoleCards.new(
+        Card.new(player_data['hole_cards'].first),
+        Card.new(player_data['hole_cards'].last)
+        )
     @name = player_data['name']
     @stack = player_data['stack']
     @bet = player_data['bet']

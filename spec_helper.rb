@@ -6,6 +6,7 @@ require_relative 'game_data_parser'
 require_relative 'card'
 require_relative 'table'
 require_relative 'cards_factory'
+require_relative 'hole_cards'
 
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods

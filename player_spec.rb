@@ -20,8 +20,8 @@ describe Player do
   let(:player) { described_class.new(data) }
 
   it "#hole_cards - the player's whole cards" do
-    expect(player.hole_cards).to be_kind_of Array
-    expect(player.hole_cards.first.rank).to eq '8'
+    expect(player.hole_cards).to be_kind_of HoleCards
+    expect(player.hole_cards.card1.rank).to eq '8'
   end
 
   it "#name - the player's name" do
