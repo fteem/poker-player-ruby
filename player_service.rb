@@ -17,10 +17,10 @@ post "/" do
 
   data   = GameDataParser.new(params)
   table  = Table.new(data.table_data)
-  player = Player.new(data.player)
+  player = Player.new(data.player, table)
 
   if params[:action] == 'bet_request' #return an integer
-    Player.new.bet_request(JSON.parse(params[:game_state])).to_s
+    player.bet_request
   elsif params[:action] == 'showdown'
     Player.new.showdown(JSON.parse(params[:game_state]))
     'OK'
