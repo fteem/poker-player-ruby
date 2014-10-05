@@ -3,7 +3,7 @@ require 'json'
 class GameDataParser
 
   def initialize(raw_json)
-    @json = JSON.parse(raw_json)
+    @json = JSON.parse(raw_json['game_state'])
   end
 
   def player

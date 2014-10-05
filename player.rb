@@ -20,12 +20,12 @@ class Player
   def bet_request
     bet = 0
     if @hole_cards.pair?
-      bet = table.minimum_raise * 2
+      bet = table.pot * 2
     else
       bet = 0
     end
+    puts "BETTING: #{bet}"
     bet.to_s
-    # make the bet a string (#to_s)
   end
 
   def showdown(game_state)
