@@ -3,7 +3,7 @@ class Player
 
   VERSION = "Default Ruby folding player"
 
-  attr_reader :hole_cards, :name, :stack, :bet, :id
+  attr_reader :hole_cards, :name, :stack, :bet, :id, :table
 
   def initialize(player_data, table = nil)
     @hole_cards = HoleCards.new(
@@ -15,6 +15,7 @@ class Player
     @stack = player_data['stack']
     @bet   = player_data['bet']
     @id    = player_data['id']
+    @table = table
   end
 
   def bet_request
