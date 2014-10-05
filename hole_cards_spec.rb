@@ -10,6 +10,10 @@ describe HoleCards do
     expect(hole_cards.card2.rank).to eq 'K'
   end
 
+  it '#high_card? - returns true if any of the cards are J/Q/K/A' do
+    expect(hole_cards.high_card?).to eq true
+  end
+
   it '#pair? - returns true when cards are a pocket pair' do
     card2.rank = 'A'
     expect(hole_cards.pair?).to eq true

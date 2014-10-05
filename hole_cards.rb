@@ -1,12 +1,17 @@
 class HoleCards
   CARDS_ORDER_ONE = %w(2 3 4 5 6 7 8 9 10 J Q K A)
   CARDS_ORDER_TWO = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
+  HIGH_CARDS      = CARDS_ORDER_ONE[8..-1]
 
   attr_reader :card1, :card2
 
   def initialize(card1, card2)
     @card1 = card1
     @card2 = card2
+  end
+
+  def high_card?
+    HIGH_CARDS.include?(@card1.rank) || HIGH_CARDS.include?(@card2.rank)
   end
 
   def pair?
