@@ -39,4 +39,5 @@ describe Player do
   it "#id - player's id number" do
     expect(player.id).to eq 0
   end
+
 end

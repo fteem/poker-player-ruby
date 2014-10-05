@@ -21,6 +21,10 @@ class Player
     bet = 0
     if @hole_cards.pair?
       bet = table.pot * 2
+    elsif @hole_cards.straightable? || @hole_cards.straight_flushable?
+      bet = table.mininum_raise
+    elsif @hole_cards.in_suit?
+      bet = table.minumum_raise * 1.5
     else
       bet = 0
     end
