@@ -2,6 +2,7 @@ class HoleCards
   CARDS_ORDER_ONE = %w(2 3 4 5 6 7 8 9 10 J Q K A)
   CARDS_ORDER_TWO = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
   HIGH_CARDS      = CARDS_ORDER_ONE[8..-1]
+  LOW_CARDS       = CARDS_ORDER_ONE - HIGH_CARDS
 
   attr_reader :card1, :card2
 
@@ -16,6 +17,10 @@ class HoleCards
 
   def pair?
     @card1.rank == @card2.rank
+  end
+
+  def low_pair?
+    pair? && LOW_CARDS.include?(@card1.rank)
   end
 
   def in_suit?

@@ -19,6 +19,12 @@ describe HoleCards do
     expect(hole_cards.pair?).to eq true
   end
 
+  it '#low_pair? - returns true when cards are a low pocket pair' do
+    card1.rank = '3'
+    card2.rank = '3'
+    expect(hole_cards.low_pair?).to eq true
+  end
+
   it '#in_suit? - returns true when cards are in the same suit' do
     card2.suit = 'spades'
     expect(hole_cards.in_suit?).to eq true

@@ -16,6 +16,7 @@ class Player
     @bet   = player_data['bet']
     @id    = player_data['id']
     @table = table
+    @brain = Brain.new(@table, @hole_cards, @stack)
   end
 
   def bet_request

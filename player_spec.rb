@@ -17,7 +17,13 @@ describe Player do
     }
   end
 
-  let(:player) { described_class.new(data) }
+  let(:table) do
+    double(Table, current_buy_in: 100, pot: 100,
+      community_cards: [ double(Card), double(Card), double(Card)]
+    )
+  end
+
+  let(:player) { described_class.new(data, table) }
 
   it "#hole_cards - the player's whole cards" do
     expect(player.hole_cards).to be_kind_of HoleCards

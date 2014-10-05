@@ -7,6 +7,7 @@ require_relative 'card'
 require_relative 'table'
 require_relative 'cards_factory'
 require_relative 'hole_cards'
+require_relative 'brain'
 
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
