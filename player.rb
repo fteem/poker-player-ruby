@@ -21,11 +21,11 @@ class Player
   def bet_request
     bet = 0
     if @hole_cards.pair?
-      bet = table.pot * 2
+      bet = @table.pot * 2
     elsif @hole_cards.straightable? || @hole_cards.straight_flushable?
-      bet = table.minimum_raise
+      bet = @table.minimum_raise
     elsif @hole_cards.in_suit?
-      bet = table.minimum_raise * 1.5
+      bet = @table.minimum_raise * 1.5
     else
       bet = 0
     end
